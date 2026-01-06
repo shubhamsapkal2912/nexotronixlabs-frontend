@@ -1,0 +1,51 @@
+/* ===== DARK THEME VARIABLES ===== */
+:host {
+  /* Dark Blue Primary Colors */
+  --primary-blue: #2563eb;
+  --primary-blue-light: #3b82f6;
+  --primary-blue-lighter: #60a5fa;
+  --primary-blue-dark: #1e40af;
+  --primary-blue-darker: #1e3a8a;
+
+  /* Dark Background Colors */
+  --bg-black: #000000;
+  --bg-dark: #0a0a0a;
+  --bg-darker: #050505;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+
+  /* Border Colors */
+  --border-dark: #1f1f1f;
+  --border-blue: rgba(37, 99, 235, 0.3);
+  --border-blue-bright: rgba(59, 130, 246, 0.5);
+
+  /* Text Colors */
+  --text-white: #ffffff;
+  --text-gray: #a3a3a3;
+  --text-gray-dark: #737373;
+
+  /* Shadow Colors */
+  --shadow-blue: rgba(37, 99, 235, 0.4);
+  --shadow-blue-glow: rgba(37, 99, 235, 0.6);
+}
+
+:host {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-white);
+  background: var(--bg-black);
+  min-height: 100vh;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--bg-black);
+}
+
+.main-content {
+  flex: 1;
+}

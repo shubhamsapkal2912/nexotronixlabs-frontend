@@ -1,0 +1,25 @@
+<section class="contact-section">
+  <div class="section-header">
+    <h2 class="section-title">Ready to build the future?</h2>
+    <p class="section-subtitle">
+      Let's connect and discuss how Nexotronix Labs can help you achieve your goals. We're excited to learn about your project.
+    </p>
+  </div>
+  <div class="contact-form-wrapper">
+    <form class="contact-form" (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <label for="name">Full Name</label>
+        <input pInputText id="name" type="text" placeholder="John Doe" [(ngModel)]="contactForm.name" name="name"/>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input pInputText id="email" type="email" placeholder="you@example.com" [(ngModel)]="contactForm.email" name="email"/>
+      </div>
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea pInputTextarea id="message" rows="5" placeholder="Tell us about your project..." [(ngModel)]="contactForm.message" name="message"></textarea>
+      </div>
+      <button pButton type="submit" label="Send Message" class="p-button-raised p-button-lg submit-btn"></button>
+    </form>
+  </div>
+</section>

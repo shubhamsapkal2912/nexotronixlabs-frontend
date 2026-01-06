@@ -1,0 +1,48 @@
+/* ===== FOOTER ===== */
+.footer {
+  border-top: 1px solid var(--border-dark);
+  padding: 2rem 2.5rem;
+  margin-top: auto;
+  background: var(--bg-dark);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px var(--shadow-blue));
+}
+
+.footer-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.footer-copyright {
+  color: var(--text-gray-dark);
+  font-size: 0.875rem;
+  margin: 0;
+}

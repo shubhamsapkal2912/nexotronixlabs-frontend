@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header-content">
+    <div class="logo-section">
+      <div class="logo-icon">
+        <img src="assets/images/logo.png" alt="Nexotronix Labs Logo" class="logo-image">
+      </div>
+      <h2 class="logo-text">{{ title }}</h2>
+    </div>
+    <nav class="nav-menu">
+      <a (click)="scrollToSection('features')">Features</a>
+      <a (click)="scrollToSection('services')">Services</a>
+      <a (click)="scrollToSection('contact')">Contact</a>
+      <button pButton label="Get in Touch" class="p-button-raised header-btn" (click)="scrollToSection('contact')"></button>
+    </nav>
+  </div>
+</header>
