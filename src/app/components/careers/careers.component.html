@@ -1,0 +1,276 @@
+<div class="contact-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <p-chip  styleClass="custom-chip"></p-chip>
+      <h1 class="hero-title">Build Your Career With Us</h1>
+      <p class="hero-description">
+        Join a team of passionate innovators building the future of digital solutions. 
+        We're always looking for talented individuals who want to make an impact.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Team Members</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Open Positions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Employee Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Culture Section -->
+  <section class="culture-section">
+    <div class="section-header">
+      <h2 class="section-title">Our Culture & Values</h2>
+      <p class="section-description">
+        Our culture is built on collaboration, innovation, and mutual respect.
+      </p>
+    </div>
+
+    <div class="culture-grid">
+      <div *ngFor="let value of cultureValues" class="culture-card">
+        <div class="culture-image">
+          <img [src]="value.image" [alt]="value.title">
+          <div class="culture-overlay">
+            <h3 class="culture-title">{{ value.title }}</h3>
+          </div>
+        </div>
+        <div class="culture-content">
+          <p class="culture-description">{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="section-header">
+      <h2 class="section-title">Why Work With Us</h2>
+      <p class="section-description">
+        We invest in our people with comprehensive benefits and growth opportunities.
+      </p>
+    </div>
+
+    <div class="benefits-grid">
+      <div *ngFor="let benefit of benefits" class="benefit-card">
+        <div class="benefit-icon">
+          <i [class]="'pi ' + benefit.icon"></i>
+        </div>
+        <h3 class="benefit-title">{{ benefit.title }}</h3>
+        <p class="benefit-description">{{ benefit.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jobs Section -->
+  <section class="jobs-section">
+    <div class="section-header">
+      <h2 class="section-title">Open Positions</h2>
+      <p class="section-description">
+        Find your next opportunity and join our growing team.
+      </p>
+    </div>
+
+    <div class="jobs-list" *ngIf="openPositions.length > 0">
+      <p-card *ngFor="let job of openPositions" styleClass="job-card">
+        <ng-template pTemplate="header">
+          <div class="job-card-header">
+            <div class="job-header">
+              <h3 class="job-title">{{ job.title }}</h3>
+              <p-chip 
+                [label]="job.type" 
+                [style]="{'background-color': 'var(--primary-light)', 'color': 'var(--primary-color)'}">
+              </p-chip>
+            </div>
+            <div class="job-meta">
+              <span><i class="pi pi-map-marker"></i> {{ job.location }}</span>
+              <span><i class="pi pi-briefcase"></i> {{ job.experience }}</span>
+              <span><i class="pi pi-clock"></i> Posted {{ job.postedDate }}</span>
+            </div>
+          </div>
+        </ng-template>
+
+        <p class="job-description">{{ job.description }}</p>
+
+        <p-accordion styleClass="job-accordion">
+          <p-accordionTab header="Requirements">
+            <ul class="job-list">
+              <li *ngFor="let req of job.requirements">{{ req }}</li>
+            </ul>
+          </p-accordionTab>
+          <p-accordionTab header="Responsibilities">
+            <ul class="job-list">
+              <li *ngFor="let resp of job.responsibilities">{{ resp }}</li>
+            </ul>
+          </p-accordionTab>
+        </p-accordion>
+
+        <ng-template pTemplate="footer">
+          <p-button 
+            label="Apply Now" 
+            icon="pi pi-send"
+            iconPos="right"
+            styleClass="career-btn apply-btn"
+            (onClick)="openApplicationModal(job)">
+          </p-button>
+        </ng-template>
+      </p-card>
+    </div>
+
+    <div class="no-jobs" *ngIf="openPositions.length === 0">
+      <i class="pi pi-briefcase no-jobs-icon"></i>
+      <h3>No Open Positions</h3>
+      <p>We don't have any open positions at the moment, but we're always looking for talented people.</p>
+      <p-button 
+        label="Send Your Resume" 
+        icon="pi pi-file"
+        iconPos="right"
+        styleClass="career-btn"
+        (onClick)="openApplicationModal(null)">
+      </p-button>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">Don't See a Perfect Fit?</h2>
+      <p class="cta-description">
+        We're always looking for talented people. Send us your resume and we'll keep you 
+        in mind for future opportunities.
+      </p>
+      <p-button 
+        label="Submit Your Resume" 
+        icon="pi pi-send"
+        iconPos="right"
+        styleClass="career-btn resume-btn"
+        (onClick)="openApplicationModal(null)">
+      </p-button>
+    </div>
+  </section>
+</div>
+
+<!-- Application Modal -->
+<p-dialog 
+  [header]="selectedJob ? 'Apply for ' + selectedJob.title : 'Submit Your Resume'" 
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '600px' }"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="application-modal">
+  
+  <p-messages [(value)]="messages" [closable]="true"></p-messages>
+
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="application-form">
+    
+    <!-- Name Field -->
+    <div class="form-field">
+      <label for="app-name">Full Name *</label>
+      <input 
+        id="app-name"
+        type="text" 
+        pInputText 
+        formControlName="name"
+        placeholder="John Doe"
+        [class.ng-invalid]="submitted && f['name'].errors"
+        [class.ng-dirty]="submitted && f['name'].errors" />
+      <small 
+        class="p-error" 
+        *ngIf="submitted && f['name'].errors">
+        Name is required (minimum 2 characters)
+      </small>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-field">
+      <label for="app-email">Email Address *</label>
+      <input 
+        id="app-email"
+        type="email" 
+        pInputText 
+        formControlName="email"
+        placeholder="john@example.com"
+        [class.ng-invalid]="submitted && f['email'].errors"
+        [class.ng-dirty]="submitted && f['email'].errors" />
+      <small 
+        class="p-error" 
+        *ngIf="submitted && f['email'].errors">
+        Valid email is required
+      </small>
+    </div>
+
+    <!-- Contact Field -->
+    <div class="form-field">
+      <label for="app-contact">Contact Number *</label>
+      <input 
+        id="app-contact"
+        type="tel" 
+        pInputText 
+        formControlName="contact"
+        placeholder="+91 9876543210"
+        [class.ng-invalid]="submitted && f['contact'].errors"
+        [class.ng-dirty]="submitted && f['contact'].errors" />
+      <small 
+        class="p-error" 
+        *ngIf="submitted && f['contact'].errors">
+        Valid contact number is required
+      </small>
+    </div>
+
+    <!-- Resume Upload -->
+    <div class="form-field">
+      <label for="app-resume">Resume (PDF only) *</label>
+      <p-fileUpload 
+        mode="basic"
+        name="resume"
+        accept="application/pdf"
+        [maxFileSize]="5000000"
+        chooseLabel="Choose PDF"
+        (onSelect)="onFileSelect($event)"
+        (onRemove)="onFileRemove()"
+        [auto]="false"
+        chooseIcon="pi pi-file-pdf">
+      </p-fileUpload>
+      <small class="file-hint">Maximum file size: 5MB</small>
+      <small 
+        class="p-error" 
+        *ngIf="submitted && f['resume'].errors">
+        Resume is required
+      </small>
+    </div>
+
+  </form>
+
+ <ng-template pTemplate="footer">
+  <div class="dialog-footer">
+    <div class="footer-left">
+      <p-button
+  label="Cancel"
+  icon="pi pi-times"
+  (onClick)="closeModal()"
+  styleClass="career-btn cancel-btn">
+</p-button>
+
+    </div>
+
+    <div class="footer-right">
+      <p-button 
+        label="Submit Application" 
+        icon="pi pi-check"
+        (onClick)="onSubmit()"
+        styleClass="career-btn submit-btn">
+      </p-button>
+    </div>
+  </div>
+</ng-template>
+
+
+</p-dialog>

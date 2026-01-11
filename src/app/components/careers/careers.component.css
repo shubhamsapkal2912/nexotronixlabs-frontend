@@ -1,0 +1,710 @@
+/* Hero Section */
+.hero-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: radial-gradient(ellipse at top, var(--primary-light), transparent);
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.custom-chip {
+  background: var(--primary-light) !important;
+  color: var(--primary-color) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-color-secondary);
+  margin-bottom: 3rem;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+  font-weight: 600;
+}
+
+/* Culture Section */
+.culture-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.section-description {
+  font-size: 1.125rem;
+  color: var(--text-color-secondary);
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.culture-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.culture-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.culture-card:hover .culture-image img {
+  transform: scale(1.1);
+}
+
+.culture-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.culture-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.culture-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.culture-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.culture-content {
+  padding: 1.5rem;
+  background: var(--surface-0);
+}
+
+.culture-description {
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background: var(--surface-50);
+  padding: 5rem 2rem;
+}
+
+.benefits-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  background: var(--surface-0);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  border-color: transparent;
+  box-shadow: 0 8px 32px rgba(43, 157, 238, 0.15);
+  transform: translateY(-4px);
+}
+
+.benefit-card:hover .benefit-icon {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.benefit-card:hover .benefit-icon i {
+  color: white;
+}
+
+.benefit-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--primary-light);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.benefit-icon i {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.benefit-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.benefit-description {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Jobs Section */
+.jobs-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.jobs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.no-jobs {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--surface-50);
+  border-radius: 1rem;
+}
+
+.no-jobs-icon {
+  font-size: 4rem;
+  color: var(--surface-300);
+  margin-bottom: 1.5rem;
+}
+
+.no-jobs h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.no-jobs p {
+  color: var(--text-color-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Job Card Styles */
+:host ::ng-deep .job-card {
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep .job-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+:host ::ng-deep .job-card .p-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep .job-card .p-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+
+:host ::ng-deep .job-card .p-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep .job-card .p-card-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+:host ::ng-deep .job-card .p-card-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--surface-border);
+  margin-top: auto;
+}
+
+.job-card-header {
+  width: 100%;
+}
+
+.job-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.job-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+}
+
+.job-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.job-meta i {
+  font-size: 0.875rem;
+  color: var(--primary-color);
+}
+
+.job-description {
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+:host ::ng-deep .job-accordion {
+  margin-bottom: 1rem;
+}
+
+:host ::ng-deep .job-accordion .p-accordion-header-link {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+:host ::ng-deep .job-accordion .p-accordion-content {
+  padding: 1rem;
+}
+
+.job-list {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.job-list li {
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-light), rgba(43, 157, 238, 0.15));
+  padding: 5rem 2rem;
+  border-radius: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto 5rem;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  color: var(--text-color-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Button Styles */
+:host ::ng-deep .career-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 10px;
+  line-height: 1;
+}
+
+:host ::ng-deep .career-btn .p-button-icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+:host ::ng-deep .career-btn .p-button-icon-right {
+  margin-left: 0 !important;
+}
+
+:host ::ng-deep .apply-btn {
+  background: var(--primary-color) !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+:host ::ng-deep .apply-btn:hover {
+  background: var(--primary-dark) !important;
+}
+
+:host ::ng-deep .resume-btn.p-button {
+  background: #ffffff !important;
+  color: var(--primary-color) !important;
+  border: none !important;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+:host ::ng-deep .resume-btn .p-button-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+:host ::ng-deep .resume-btn .p-button-icon-right {
+  margin-left: 0 !important;
+}
+
+:host ::ng-deep .resume-btn:hover {
+  background: var(--surface-50) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* Application Modal Styles */
+:host ::ng-deep .application-modal .p-dialog-header {
+  background: var(--primary-color);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  padding: 1.5rem 2rem;
+}
+
+:host ::ng-deep .application-modal .p-dialog-header .p-dialog-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+:host ::ng-deep .application-modal .p-dialog-header-icon {
+  color: white;
+}
+
+:host ::ng-deep .application-modal .p-dialog-header-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+:host ::ng-deep .application-modal .p-dialog-content {
+  padding: 2rem;
+}
+
+:host ::ng-deep .application-modal .p-dialog-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--surface-border);
+}
+
+
+.application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.875rem;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem var(--primary-light);
+}
+
+.form-field input.ng-invalid.ng-dirty {
+  border-color: var(--red-500);
+}
+
+.form-field .p-error {
+  color: var(--red-500);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.file-hint {
+  color: var(--text-color-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+:host ::ng-deep .p-fileupload-choose {
+  background: var(--primary-color) !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+:host ::ng-deep .p-fileupload-choose:hover {
+  background: var(--primary-dark) !important;
+}
+
+:host ::ng-deep .p-fileupload-choose .p-button-label {
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .jobs-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :host ::ng-deep .application-modal {
+    width: 90vw !important;
+    max-width: 90vw !important;
+  }
+  
+  :host ::ng-deep .application-modal .p-dialog-content {
+    padding: 1.5rem;
+  }
+  
+  .hero-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .hero-stats {
+    gap: 2rem;
+  }
+  
+  .culture-section,
+  .jobs-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .benefits-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .jobs-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .culture-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+/* Job Card Styles */
+:host ::ng-deep .job-card {
+  height: 100%;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+:host ::ng-deep .job-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+:host ::ng-deep .job-card .p-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+:host ::ng-deep .job-card .p-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  padding: 1.5rem;
+}
+
+:host ::ng-deep .job-card .p-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+:host ::ng-deep .job-card .p-card-header {
+  padding: 1.5rem 1.5rem 0;
+  background: var(--surface-0);
+  border-bottom: none;
+}
+
+:host ::ng-deep .job-card .p-card-footer {
+  padding: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--surface-border);
+  margin-top: auto;
+  background: var(--surface-0);
+}
+:host ::ng-deep .job-card.p-card {
+  border: 1px solid var(--surface-border) !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+:host ::ng-deep .submit-btn.p-button {
+  background: var(--primary-color) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 12px;
+}
+
+:host ::ng-deep .submit-btn.p-button:hover {
+  background: var(--primary-dark) !important;
+}
+:host ::ng-deep .dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:host ::ng-deep .dialog-footer .footer-left,
+:host ::ng-deep .dialog-footer .footer-right {
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .application-modal .dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+:host ::ng-deep .cancel-btn.p-button {
+  background: transparent !important;
+  color: var(--text-color-secondary) !important;
+  border: 1px solid var(--surface-border) !important;
+  border-radius: 12px;
+  padding: 0.65rem 1.4rem;
+}
+
+:host ::ng-deep .cancel-btn.p-button:hover {
+  background: var(--surface-50) !important;
+}

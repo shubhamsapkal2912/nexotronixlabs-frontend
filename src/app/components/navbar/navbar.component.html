@@ -1,0 +1,112 @@
+<nav class="navbar-container">
+  <div class="navbar-wrapper">
+    <!-- Logo -->
+    <a routerLink="/" class="logo-section" (click)="closeMobileMenu()">
+      <div class="logo-icon">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path 
+            clip-rule="evenodd" 
+            d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" 
+            fill="currentColor" 
+            fill-rule="evenodd">
+          </path>
+        </svg>
+      </div>
+      <span class="logo-text">Nexotronix Labs</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav">
+      <a
+        *ngFor="let item of items"
+        [routerLink]="item.routerLink"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.routerLink === '/' }"
+        class="nav-link"
+        (click)="item.command && item.command({})"
+      >
+        <i [class]="item.icon"></i>
+        {{ item.label }}
+      </a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="desktop-cta">
+   <p-button
+  label="Get Quote"
+  icon="pi pi-arrow-right"
+  iconPos="right"
+  styleClass="quote-btn"
+  (onClick)="getQuote()"
+></p-button>
+
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="mobile-menu-toggle"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle menu"
+    >
+      <i class="pi pi-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ================= MOBILE SIDEBAR (OUTSIDE NAV) ================= -->
+
+<div class="mobile-sidebar" [class.active]="isMobileMenuOpen">
+  <!-- Overlay -->
+  <div class="sidebar-overlay" (click)="closeMobileMenu()"></div>
+
+  <!-- Sidebar Panel -->
+  <div class="sidebar-content">
+    <!-- Header -->
+    <div class="sidebar-header">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              clip-rule="evenodd" 
+              d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" 
+              fill="currentColor" 
+              fill-rule="evenodd">
+            </path>
+          </svg>
+        </div>
+        <span class="logo-text">Nexotronix Labs</span>
+      </div>
+      <button class="close-btn" (click)="closeMobileMenu()" aria-label="Close">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+
+    <!-- Links -->
+    <nav class="sidebar-nav">
+      <a
+        *ngFor="let item of items"
+        [routerLink]="item.routerLink"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.routerLink === '/' }"
+        class="sidebar-link"
+        (click)="handleMobileNavigation(item)"
+      >
+        <i [class]="item.icon"></i>
+        <span>{{ item.label }}</span>
+        <i class="pi pi-chevron-right arrow"></i>
+      </a>
+    </nav>
+
+    <!-- CTA -->
+    <div class="sidebar-cta">
+    <p-button
+  label="Get Quote"
+  icon="pi pi-arrow-right"
+  iconPos="right"
+  styleClass="quote-btn w-full"
+  (onClick)="getQuote(); closeMobileMenu()"
+></p-button>
+
+    </div>
+  </div>
+</div>

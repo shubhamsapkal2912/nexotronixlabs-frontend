@@ -1,0 +1,215 @@
+<div class="contact-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Let's Build Something Amazing Together</h1>
+      <p class="hero-description">
+        Have a project in mind? Get in touch and let's discuss how we can help 
+        bring your vision to life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-content">
+    <div class="content-wrapper">
+      <!-- Contact Form -->
+      <div class="form-section">
+        <h2 class="section-title">Send us a message</h2>
+        <p class="section-description">
+          Fill out the form below and we'll get back to you as soon as possible.
+        </p>
+
+        <p-messages [(value)]="messages" [closable]="true"></p-messages>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Full Name *</label>
+              <input 
+                id="name"
+                type="text" 
+                pInputText 
+                formControlName="name"
+                placeholder="John Doe"
+                [class.ng-invalid]="submitted && f['name'].errors"
+                [class.ng-dirty]="submitted && f['name'].errors" />
+              <small 
+                class="p-error" 
+                *ngIf="submitted && f['name'].errors">
+                Name is required
+              </small>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address *</label>
+              <input 
+                id="email"
+                type="email" 
+                pInputText 
+                formControlName="email"
+                placeholder="john@company.com"
+                [class.ng-invalid]="submitted && f['email'].errors"
+                [class.ng-dirty]="submitted && f['email'].errors" />
+              <small 
+                class="p-error" 
+                *ngIf="submitted && f['email'].errors">
+                Valid email is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="phone">Phone Number</label>
+              <input 
+                id="phone"
+                type="tel" 
+                pInputText 
+                formControlName="phone"
+                placeholder="+1 (555) 123-4567" />
+            </div>
+
+            <div class="form-field">
+              <label for="company">Company</label>
+              <input 
+                id="company"
+                type="text" 
+                pInputText 
+                formControlName="company"
+                placeholder="Your Company" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="service">Service Interested In *</label>
+              <p-dropdown 
+                id="service"
+                [options]="serviceOptions" 
+                formControlName="service"
+                placeholder="Select a service"
+                [style]="{'width': '100%'}"
+                [class.ng-invalid]="submitted && f['service'].errors"
+                [class.ng-dirty]="submitted && f['service'].errors">
+              </p-dropdown>
+              <small 
+                class="p-error" 
+                *ngIf="submitted && f['service'].errors">
+                Please select a service
+              </small>
+            </div>
+
+            <div class="form-field">
+              <label for="budget">Project Budget</label>
+              <p-dropdown 
+                id="budget"
+                [options]="budgetOptions" 
+                formControlName="budget"
+                placeholder="Select budget range"
+                [style]="{'width': '100%'}">
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Project Details *</label>
+            <textarea 
+              id="message"
+              pInputTextarea 
+              formControlName="message"
+              [rows]="5"
+              placeholder="Tell us about your project..."
+              [class.ng-invalid]="submitted && f['message'].errors"
+              [class.ng-dirty]="submitted && f['message'].errors">
+            </textarea>
+            <small 
+              class="p-error" 
+              *ngIf="submitted && f['message'].errors">
+              Message must be at least 10 characters
+            </small>
+          </div>
+
+          <p-button 
+  type="submit"
+  [label]="loading ? 'Sending...' : 'Send Message'"
+  icon="pi pi-send"
+  iconPos="right"
+  [loading]="loading"
+  [disabled]="loading"
+  styleClass="p-button-lg submit-button">
+</p-button>
+
+        </form>
+      </div>
+
+      <!-- Contact Info Sidebar -->
+      <div class="info-section">
+        <h3 class="info-title">Contact Information</h3>
+        <p class="info-description">
+          Reach out to us directly through any of these channels.
+        </p>
+
+        <div class="info-cards">
+          <a 
+            *ngFor="let info of contactInfo" 
+            [href]="info.link"
+            class="info-card"
+            target="_blank"
+            rel="noopener noreferrer">
+            <div class="info-icon">
+              <i [class]="'pi ' + info.icon"></i>
+            </div>
+            <div class="info-content">
+              <p class="info-label">{{ info.title }}</p>
+              <p class="info-value">{{ info.value }}</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="office-hours">
+          <h4 class="hours-title">Office Hours</h4>
+          <div class="hours-list">
+            <div class="hours-item">
+              <span class="day">Monday - Friday</span>
+              <span class="time">9:00 AM - 6:00 PM PST</span>
+            </div>
+            <div class="hours-item">
+              <span class="day">Saturday</span>
+              <span class="time">10:00 AM - 2:00 PM PST</span>
+            </div>
+            <div class="hours-item">
+              <span class="day">Sunday</span>
+              <span class="time">Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <img 
+            src="assets/images/img-6.jpeg?w=800" 
+            alt="Office location map"
+            class="map-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="section-header">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-description">
+        Find quick answers to common questions about our services.
+      </p>
+    </div>
+
+    <div class="faq-accordion">
+      <p-accordion [multiple]="true">
+        <p-accordionTab *ngFor="let faq of faqs" [header]="faq.question">
+          <p>{{ faq.answer }}</p>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </section>
+</div>

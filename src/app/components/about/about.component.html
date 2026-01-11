@@ -1,0 +1,118 @@
+<div class="about-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p-chip styleClass="custom-chip"></p-chip>
+        
+        <h1 class="hero-title">Empowering Innovation Through Technology</h1>
+        
+        <p class="hero-subtitle">
+          We are a team of passionate developers, designers, and strategists dedicated 
+          to transforming businesses through cutting-edge digital solutions.
+        </p>
+        
+        <div class="hero-actions">
+  <p-button 
+    label="Our Services" 
+    icon="pi pi-briefcase"
+    styleClass="p-button-lg about-hero-btn"
+    [routerLink]="['/services']">
+  </p-button>
+
+  <p-button 
+    label="Get in Touch" 
+    icon="pi pi-envelope"
+    styleClass="p-button-lg p-button-outlined about-hero-btn"
+    [routerLink]="['/contact']">
+  </p-button>
+</div>
+
+      </div>
+
+      <div class="hero-image">
+        <img 
+           src="assets/images/img-3.jpeg"
+          alt="Team working together"
+          class="main-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story-section">
+    <div class="story-content">
+      <div class="story-image">
+        <img 
+         src="assets/images/img-2.jpeg" 
+          alt="Office environment">
+      </div>
+
+      <div class="story-text">
+        <h2 class="section-title">Our Story</h2>
+        <p class="story-paragraph">
+          Nexotronix Labs began with a simple mission: to bridge the gap between complex 
+          technology and user-friendly experiences.
+        </p>
+        <p class="story-paragraph">
+          Founded in 2015, we started as a small team of passionate engineers and designers. 
+          Today, we are a global partner for businesses looking to innovate.
+        </p>
+        <p class="story-paragraph">
+          We are dedicated to quality, transparency, and fostering a modern, agile environment 
+          where great ideas can thrive.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="section-header">
+      <h2 class="section-title">Our Core Values</h2>
+      <p class="section-description">
+        Driven by purpose and precision in everything we do.
+      </p>
+    </div>
+
+    <!-- Main Values Grid -->
+    <div class="values-grid">
+      <p-card *ngFor="let value of coreValues" class="value-card">
+        <div class="card-icon-wrapper">
+          <i [class]="'pi ' + value.icon"></i>
+        </div>
+        <h3 class="card-title">{{ value.title }}</h3>
+        <p class="card-description">{{ value.description }}</p>
+      </p-card>
+    </div>
+
+    <!-- Mini Values -->
+    <div class="mini-values">
+      <div *ngFor="let value of values" class="mini-value-card">
+        <i [class]="'pi ' + value.icon + ' mini-icon'"></i>
+        <div>
+          <h4 class="mini-title">{{ value.title }}</h4>
+          <p class="mini-description">{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="expertise-section">
+    <div class="section-header">
+      <h2 class="section-title">Our Expertise</h2>
+      <p class="section-description">
+        Comprehensive digital solutions for modern businesses.
+      </p>
+    </div>
+
+    <div class="expertise-grid">
+      <div *ngFor="let item of expertise" class="expertise-card">
+        <i [class]="'pi ' + item.icon + ' expertise-icon'"></i>
+        <h3 class="expertise-title">{{ item.title }}</h3>
+        <p class="expertise-description">{{ item.description }}</p>
+      </div>
+    </div>
+  </section>
+</div>
